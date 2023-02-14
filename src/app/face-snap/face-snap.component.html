@@ -1,13 +1,8 @@
 <div class="face-snap-card" [ngClass]="{snapped: buttonText === 'Oops, unSnap!'}">
-    <p>{{0.473| percent}}</p>
     <h2>{{ faceSnap.title | uppercase }}</h2>  <!--use pipes only in string interpolation PS: pipes does not change the var but its display format!-->
-    <p>Mis en ligne {{ faceSnap.createdDate | date: 'medium' }}</p>       <!-- string interpolation {{}}-->
-    <p *ngIf="faceSnap.location">photo prise à {{faceSnap.location}}</p>
-    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">   <!--attribute binding []-->
     <p>{{ faceSnap.description}}</p> 
+    <button (click)="onViewFaceSnap()">VIEW</button>
     <p>
-        <button (click)="onSnap()">{{buttonText}}</button>   <!--event binding avec ()-->
-        <span [ngStyle]="{ color: 'rgb(0, ' + faceSnap.snaps + ', 0)' }">🤌 {{ faceSnap.snaps }}</span>
-      </p>
-      
+        {{faceSnap.mode}}
+    </p>
   </div>
